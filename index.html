@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153e35">
+  <title>Nihao — помощь рядом в Китае</title>
+  <meta name="description" content="Интерактивный прототип сервиса: найдите местного помощника в Китае, обсудите задачу и создайте тестовую заявку.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='19' fill='%23153e35'/%3E%3Cpath d='M18 45V20h9v4c5-8 19-6 19 7v14h-9V32c0-7-10-7-10 0v13z' fill='%23d5f68b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <button class="brand" data-nav="home" aria-label="Nihao — на главную"><span class="brand-symbol">n</span><span>nihao<span class="brand-dot">.</span></span><span class="brand-cn">你好</span></button>
+      <p class="side-caption">ВАШ ЧЕЛОВЕК В КИТАЕ</p>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <button class="nav-item active" data-nav="home"><span data-icon="compass"></span><span>Найти помощь</span></button>
+        <button class="nav-item" data-nav="requests"><span data-icon="clipboard"></span><span>Мои заявки</span><span class="nav-count" id="request-count" hidden>0</span></button>
+        <button class="nav-item" data-nav="messages"><span data-icon="message"></span><span>Сообщения</span><span class="nav-count" id="message-count" hidden>0</span></button>
+      </nav>
+      <div class="side-bottom">
+        <div class="side-help"><span class="little-mark">你好</span><h3>На одной волне.<br>На вашем языке.</h3><p>Местный опыт для ваших повседневных задач.</p><button class="text-link" id="how-button">Как это работает <span data-icon="arrow-right"></span></button></div>
+        <div class="side-footer"><span class="tiny-logo">n.</span><span>Чуть ближе к дому</span></div>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div class="mobile-brand">nihao<span>.</span></div>
+        <label class="city-picker"><span data-icon="pin"></span><span class="sr-only">Город</span><select id="city-select"><option value="shenzhen">Шэньчжэнь</option><option value="shanghai">Шанхай</option><option value="beijing">Пекин</option></select><span data-icon="chevron-down"></span></label>
+        <div class="topbar-right"><span class="prototype-badge">Прототип <span>· демоданные</span></span><span class="profile-avatar" aria-label="Тестовый профиль Анны">А</span></div>
+      </header>
+      <main id="main" tabindex="-1"></main>
+      <footer class="page-footer"><span>Nihao · помощь рядом</span><span>Демонстрационный сервис. Реальные заявки и платежи не отправляются.</span></footer>
+    </div>
+  </div>
+  <dialog id="profile-dialog" class="profile-dialog"><div id="profile-content"></div></dialog>
+  <dialog id="booking-dialog" class="booking-dialog"><div id="booking-content"></div></dialog>
+  <dialog id="info-dialog" class="info-dialog"><div id="info-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
